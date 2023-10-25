@@ -10,10 +10,19 @@ async def create_admin_role(guild):
 
 # List of funny catchphrases for ban without a specific reason
 catchphrases = [
-    "Because bananas are too slippery.",
-    "For being a pineapple on pizza advocate.",
-    "They spilled coffee on the server rack.",
-    "Their keyboard was too clicky.",
-    "The duck said so.",
+    "For wearing socks with sandals.",
+    "Because they're a closet teletubby fan.",
+    "Their favorite movie is 'The Emoji Movie'.",
+    "They put ketchup on their spaghetti.",
+    "For having too many cat pictures on their phone.",
+    "They're allergic to fun.",
+    "They can't dance even if their life depended on it.",
+    "Because their favorite song is 'Baby Shark'.",
+    "For using Comic Sans in official documents.",
+    "Their password is 'password'.",
+    "They like pineapple on pizza.",
+    "For saying 'YOLO' unironically.",
+    "They still use Internet Explorer.",
+    "Their favorite color is brown. Yes, brown.",
+    "Because they spoil every movie ending.",
 ]
-

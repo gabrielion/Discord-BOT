@@ -1,5 +1,5 @@
 import random
-from utils import create_admin_role
+from utils import create_admin_role, catchphrases
 from discord.ext import commands
 import discord
 
@@ -53,23 +53,19 @@ async def on_message(message):
 
 # Command to ban a user with an optional reason
 @bot.command()
-async def ban(ctx, member: discord.Member, *, reason="No specific reason"):
+async def ban(ctx, member: discord.Member, *, reason=None):
     # Check if the user issuing the command has the "Ban Members" permission
     if ctx.author.guild_permissions.ban_members:
         try:
+            if reason is None:
+                reason = random.choice(catchphrases)
             await member.ban(reason=reason)
             await ctx.send(f'{member.mention} has been banned for the reason: {reason}')
         except discord.Forbidden:
-            await ctx.send("I don't have the necessary permissions to ban members.")
+            await ctx.send("you don't have the necessary permissions to ban members.")
     else:
         await ctx.send("You don't have permission to use this command.")
 
-# Command to ban a user with a random catchphrase as the reason
-@ban.error
-async def ban_error(ctx, error):
-    if isinstance(error, commands.MissingRequiredArgument):
-        catchphrase = random.choice(catchphrases)
-        await ctx.send(f"Banning {ctx.message.content.split(' ')[1]}: {catchphrase}")
 
-token = "MTE2Njc4NTE5MzAxNzg3MjU1NQ.GvmUKe.lW4qVqGnb7SpGjJCYghVaFer0pfl5eYe5K7Zsg"
+token = "MTE2Njc4NTE5MzAxNzg3MjU1NQ.GYQg68.IdouLWMjPgeRrh6uSMWkr66bbciu2UCs1N-XqE"
 bot.run(token)  # Starts the bot
